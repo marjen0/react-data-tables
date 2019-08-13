@@ -19,7 +19,8 @@ class ReactTablePckg extends React.Component {
             const column = {
                 Header: key,
                 accessor: key,
-                sortable:true
+                sortable:true,
+                filterable:true
             }
             columns.push(column);
         }
@@ -28,7 +29,13 @@ class ReactTablePckg extends React.Component {
         })
        
         return ( 
-            <ReactTable columns={columns} data={data} filterable={true}/>
+            <ReactTable 
+                columns={columns} 
+                data={data} 
+                filterable={true}
+                defaultPageSize={10}
+                noDataText={'Please provide some data'}
+            />
         );
     }
 }
