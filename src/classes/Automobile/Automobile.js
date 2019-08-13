@@ -11,7 +11,7 @@ class Automobile {
         this.fuelAverage = fuelAverage;
     }
     fullModel() {
-        return `${this.make} ${this.model}`; 
+        return `${this.make} ${this.model}`;
     }
     
 }

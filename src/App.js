@@ -1,14 +1,12 @@
 import React from 'react';
-import Automobiles from './classes/Automobiles/Automobiles';
+import ReactTable from './containers/ReactTable/ReactTable';
 
 
 class App extends React.Component {
   render() {
-    const auto = new Automobiles();
-    console.log(auto.automobiles)
     return (
       <div>
-        hello
+        <ReactTable/>
       </div>
     );
   }

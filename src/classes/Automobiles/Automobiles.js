@@ -27,8 +27,8 @@ for (const make in manufacturers) {
         automobiles.push(automobile);
     })
 }
-
 class Automobiles {
+    
     constructor() {
         this.automobiles = automobiles;
     }
