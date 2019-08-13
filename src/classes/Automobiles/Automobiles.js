@@ -1,4 +1,5 @@
 import Automobile from '../Automobile/Automobile';
+import RandomValues from '../Random/RandomValues';
 
 const manufacturers = {
     Volvo: ['S40', 'V40', 'V50', 'C70', 'V70', 'S80', 'S60', 'S90', 'XC90'],
@@ -10,10 +11,28 @@ const manufacturers = {
 }
 let automobiles = [];
 
-
+for (const make in manufacturers) {
+    manufacturers[make].forEach(model => {
+        const automobile = new Automobile(
+            make,
+            model,
+            RandomValues.year(), 
+            RandomValues.fuelType(),
+            RandomValues.cubicCapacity(1,6),
+            RandomValues.HP(80,600),
+            RandomValues.maxSpeed(180,320),
+            RandomValues.mileage(0,600000),
+            RandomValues.fuelAverage(4,30)
+        );
+        automobiles.push(automobile);
+    })
+}
 
 class Automobiles {
-    
+    constructor() {
+        this.automobiles = automobiles;
+    }
+
 }
 
 export default Automobiles;

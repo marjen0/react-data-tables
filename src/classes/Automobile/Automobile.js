@@ -10,7 +10,7 @@ class Automobile {
         this.mileage = mileage;
         this.fuelAverage = fuelAverage;
     }
-    get fullName() {
+    fullModel() {
         return `${this.make} ${this.model}`; 
     }
     
