@@ -15,3 +15,4 @@ class Automobile {
     }
     
 }
+export default Automobile;
