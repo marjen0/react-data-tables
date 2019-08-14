@@ -34,7 +34,7 @@ class ReactTablePckg extends React.Component {
                 data={data} 
                 filterable={true}
                 defaultPageSize={10}
-                noDataText={'Please provide some data'}
+                noDataText={'No data provided'}
             />
         );
     }

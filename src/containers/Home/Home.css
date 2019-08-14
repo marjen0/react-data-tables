@@ -9,8 +9,5 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 3px;
-    box-shadow: -1px 1px 5px rgb(255, 163, 190);
-}
-.wrapper {
-    background-color: red !important;
+    box-shadow: -1px 1px 5px #ccc;
 }

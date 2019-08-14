@@ -8,6 +8,7 @@ const home = (props) => {
             <div className="container">
                 <ul>
                     <li><Link to='/react-table'>react-table</Link></li>
+                    <li><Link to='/agGrid'>agGrid</Link></li>
                 </ul>
                 
             </div>
