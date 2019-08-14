@@ -1,0 +1,16 @@
+.container {
+    background-color: #fefefe;
+    max-width: 90%;
+    width: 500px;
+    margin: 0 auto;
+    padding: 1em 2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    box-shadow: -1px 1px 5px rgb(255, 163, 190);
+}
+.wrapper {
+    background-color: red !important;
+}
