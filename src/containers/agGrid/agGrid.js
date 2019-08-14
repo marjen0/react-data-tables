@@ -1,40 +1,38 @@
 import React from 'react';
-
+import Automobiles from '../../classes/Automobiles/Automobiles';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import 'ag-grid-enterprise';
 
 
 class AgGrid extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        columnDefs: [{
-            headerName: "Make", field: "make", sortable:true, filter:true,checkboxSelection: true
-        }, {
-            headerName: "Model", field: "model"
-        }, {
-            headerName: "Price", field: "price"
-        }],
-        rowData: [{
-            make: "Toyota", model: "Celica", price: 35000
-        }, {
-             make: "Ford", model: "Mondeo", price: 32000
-        }, {
-            make: "Porsche", model: "Boxter", price: 72000
-        }, {
-            make: "Porsche", model: "Boxter", price: 72000
-        }],
-        autoGroupColumnDef: {
-            headerName: "Make",
-            field: "make",
-            cellRenderer:'agGroupCellRenderer',
-            cellRendererParams: {
-              checkbox: true
-            }
-        }
+        automobiles: new Automobiles().automobiles,
+        columnDefs: [],
+        rowData: [],
       }
+    }
+    componentDidMount() {
+        let defs = [];
+        for (const key in this.state.automobiles[0]) {
+            const def = {
+                headerName: key,
+                field: key,
+                sortable:true,
+                filter:true,
+                checkboxSelection: key === 'make'? true : false
+            }
+            defs.push(def);
+        }
+        const data = this.state.automobiles.map(automobile => {
+            return automobile;
+        })
+        this.setState({
+            columnDefs: defs, 
+            rowData:data
+        });
     }
     onButtonClick = e => {
         const selectedNodes = this.gridApi.getSelectedNodes()
@@ -45,14 +43,12 @@ class AgGrid extends React.Component {
 
     render() {
         return (
-            <div className="ag-theme-material" style={{height: '600px', width: '600px'}}>
+            <div className="ag-theme-material" style={{height: '600px', width: '100%'}}>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
                     rowData={this.state.rowData}
                     rowSelection='multiple'
                     onGridReady={ params => this.gridApi = params.api }
-                    groupSelectsChildren={true}
-                    autoGroupColumnDef={this.state.autoGroupColumnDef}
                 />
                         
                 
